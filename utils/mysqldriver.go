@@ -13,9 +13,9 @@ import (
 func InitDB(config *configs.AppConfig) *gorm.DB {
 
 	DBURL := fmt.Sprintf("host=%s user=%s password=%s port=%s dbname=%s sslmode=disable TimeZone=Asia/Jakarta ", config.Database.Address, config.Database.Username, config.Database.Password, config.Database.Port, config.Database.Name)
-	db, err := gorm.Open(postgres.Open(DBURL), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open("postgres://nmqdckadrkgkvn:3431d43e0c453af757a272d2d3c940180f96fb115bcbc25a7e5f3ff8743fa090@ec2-3-229-161-70.compute-1.amazonaws.com:5432/ddb7g4irblf0rr"), &gorm.Config{})
 	if err != nil {
-		fmt.Printf("Cannot connect to database")
+		fmt.Printf("Cannot connect to database ")
 	} else {
 		fmt.Printf("We are connected to the %s database", DBURL)
 	}

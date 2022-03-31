@@ -46,6 +46,17 @@ func initConfig() *AppConfig {
 	defaultConfig.Database.Username = os.Getenv("DB_USERNAME")
 	defaultConfig.Database.Password = os.Getenv("DB_PASSWORD")
 
+	if defaultConfig.Database.Address == "" {
+		defaultConfig.Port = 8000
+		defaultConfig.Database.Driver = os.Getenv("DB_DRIVER")
+		defaultConfig.Database.Name = os.Getenv("DB_NAME")
+		defaultConfig.Database.Address = os.Getenv("DB_HOST")
+		defaultConfig.Database.Port = os.Getenv("DB_PORT")
+		defaultConfig.Database.Username = os.Getenv("DB_USERNAME")
+		defaultConfig.Database.Password = os.Getenv("DB_PASSWORD")
+
+	}
+
 	log.Info(defaultConfig)
 
 	return &defaultConfig

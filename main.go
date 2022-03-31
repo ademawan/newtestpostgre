@@ -36,5 +36,5 @@ func main() {
 
 	routes.RegisterPath(e, authController, userController, taskController, projectController)
 
-	log.Fatal(e.Start(":8000"))
+	log.Fatal(e.Start("127.0.0.1:8000"))
 }

@@ -2,6 +2,7 @@ package configs
 
 import (
 	"os"
+	"strconv"
 	"sync"
 
 	"github.com/labstack/gommon/log"
@@ -34,9 +35,10 @@ func GetConfig() *AppConfig {
 }
 
 func initConfig() *AppConfig {
+	port, _ := strconv.Atoi(os.Getenv("PORT"))
 
 	var defaultConfig AppConfig
-	defaultConfig.Port = 8000
+	defaultConfig.Port = port
 	defaultConfig.Database.Driver = os.Getenv("DB_DRIVER")
 	defaultConfig.Database.Name = os.Getenv("DB_NAME")
 	defaultConfig.Database.Address = os.Getenv("DB_HOST")

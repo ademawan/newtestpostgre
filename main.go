@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"newtestpostgre/configs"
 	ac "newtestpostgre/delivery/controllers/auth"
 	pc "newtestpostgre/delivery/controllers/project"
@@ -36,5 +37,5 @@ func main() {
 
 	routes.RegisterPath(e, authController, userController, taskController, projectController)
 
-	log.Fatal(e.Start(":8080"))
+	log.Fatal(e.Start(fmt.Sprintf(":%d", config.Port)))
 }

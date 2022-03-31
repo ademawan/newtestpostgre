@@ -12,7 +12,7 @@ import (
 
 func InitDB(config *configs.AppConfig) *gorm.DB {
 
-	DBURL := fmt.Sprintf("user=%s password=%s host=%s port=%s dbname=%s sslmode=disable TimeZone=Asia/Jakarta", config.Database.Address, config.Database.Username, config.Database.Password, config.Database.Port, config.Database.Name)
+	DBURL := fmt.Sprintf("user=%s password=%s host=%s port=%s dbname=%s sslmode=disable TimeZone=Asia/Jakarta", config.Database.Username, config.Database.Password, config.Database.Address, config.Database.Port, config.Database.Name)
 	db, err := gorm.Open(postgres.Open(DBURL), &gorm.Config{})
 	if err != nil {
 		fmt.Printf("Cannot connect to database ")

@@ -34,15 +34,6 @@ func GetConfig() *AppConfig {
 }
 
 func initConfig() *AppConfig {
-	// err := godotenv.Load("local.env")
-
-	// if err != nil {
-	// 	log.Info(err)
-	// }
-	// port, errParse := strconv.Atoi(os.Getenv("DB_PORT"))
-	// if errParse != nil {
-	// 	log.Warn(errParse)
-	// }
 
 	var defaultConfig AppConfig
 	defaultConfig.Port = 8000

@@ -3,6 +3,7 @@ package utils
 import (
 	"fmt"
 	"newtestpostgre/configs"
+	"newtestpostgre/entities"
 
 	"github.com/labstack/gommon/log"
 	"gorm.io/driver/postgres"
@@ -31,12 +32,12 @@ func InitDB(config *configs.AppConfig) *gorm.DB {
 }
 
 func InitMigrate(db *gorm.DB) {
-	// db.Migrator().DropTable(&entities.Task{})
-	// db.Migrator().DropTable(&entities.Project{})
-	// // db.Migrator().DropTable(&entities.User{})
-	// // db.AutoMigrate(&entities.User{})
-	// db.AutoMigrate(&entities.Project{})
-	// db.AutoMigrate(&entities.Task{})
+	db.Migrator().DropTable(&entities.Task{})
+	db.Migrator().DropTable(&entities.Project{})
+	db.Migrator().DropTable(&entities.User{})
+	db.AutoMigrate(&entities.User{})
+	db.AutoMigrate(&entities.Project{})
+	db.AutoMigrate(&entities.Task{})
 	// // for i := 0; i < 2000; i++ {
 	// // 	db.Create(&entities.User{
 	// // 		Nama:     faker.Name(),

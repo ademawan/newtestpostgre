@@ -16,6 +16,9 @@ func RegisterPath(e *echo.Echo, ac *auth.AuthController, uc *user.UserController
 
 	//=========================================================
 	//ROUT USERS
+
+	e.Use(m.CORS())
+
 	e.POST("users/login", ac.Login())
 	e.POST("users/register", uc.UserRegister())
 	eAuth := e.Group("")
